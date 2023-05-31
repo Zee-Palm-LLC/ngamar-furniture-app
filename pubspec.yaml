@@ -1,0 +1,33 @@
+name: ngamar
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment: 
+  sdk: '>=2.19.0 <3.0.0'
+
+dependencies: 
+  cupertino_icons: ^1.0.2
+  flutter_screenutil: ^5.7.0
+  google_fonts: ^4.0.4
+  get: 4.6.5
+  flutter: 
+    sdk: flutter
+  surf_lint_rules: ^2.1.0
+  flutter_svg: ^2.0.5
+  lottie: ^2.3.2
+  dots_indicator: ^3.0.0
+  animate_do: ^3.0.2
+  flutter_otp_text_field: ^1.1.1
+
+dev_dependencies: 
+  flutter_lints: ^2.0.0
+  flutter_test: 
+    sdk: flutter
+
+flutter: 
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+

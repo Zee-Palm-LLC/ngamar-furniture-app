@@ -1,0 +1,5 @@
+# include: package:flutter_lints/flutter.yaml
+# linter:
+#   rules:
+
+include: package:surf_lint_rules/analysis_options.yaml
