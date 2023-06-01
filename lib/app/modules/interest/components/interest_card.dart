@@ -29,13 +29,19 @@ class InterestCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             if (isSelected)
-              const Icon(Icons.check, color: AppColors.kPrimary,size: 16,)
+              const Icon(
+                Icons.check,
+                color: AppColors.kPrimary,
+                size: 16,
+              )
             else
               const SizedBox(),
             SizedBox(width: AppSpacing.fiveHorizontal),
             Text(
               text,
-              style: AppTypography.kMedium14,
+              style: AppTypography.kMedium14.copyWith(
+                color: isSelected ? AppColors.kPrimary : AppColors.kGrey100,
+              ),
             ),
           ],
         ),

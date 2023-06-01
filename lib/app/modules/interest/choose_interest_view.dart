@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:ngamar/app/data/constants/constants.dart';
 import 'package:ngamar/app/data/helpers/furniture_list.dart';
 import 'package:ngamar/app/modules/auth/components/auth_appbar.dart';
 import 'package:ngamar/app/modules/interest/components/interest_card.dart';
 import 'package:ngamar/app/modules/interest/components/search_field.dart';
+import 'package:ngamar/app/modules/landingPage/landing_page.dart';
 import 'package:ngamar/app/modules/widgets/buttons/primary_button.dart';
 
 class ChooseInterestView extends StatefulWidget {
@@ -70,7 +72,13 @@ class _ChooseInterestViewState extends State<ChooseInterestView> {
         color: AppColors.kWhite,
         padding: EdgeInsets.all(20.h),
         child: PrimaryButton(
-          onTap: () {},
+          onTap: () {
+            if(selectedFurniture.isNotEmpty){
+              Get.to<Widget>(()=>const LandingPage());
+            }else{
+              Get.snackbar('No Interest Selected', 'Please Select AtLeast 2 items');
+            }
+          },
           text: 'Finish',
         ),
       ),
