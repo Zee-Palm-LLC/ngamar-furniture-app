@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
 import 'package:ngamar/app/data/constants/constants.dart';
+import 'package:ngamar/app/models/product_model.dart';
 import 'package:ngamar/app/models/user_model.dart';
 import 'package:ngamar/app/modules/home/components/banner_card.dart';
-
 import 'package:ngamar/app/modules/home/components/home_appBar.dart';
+import 'package:ngamar/app/modules/home/components/product_card.dart';
+import 'package:ngamar/app/modules/home/product_detail_view.dart';
 import 'package:ngamar/app/modules/widgets/buttons/custom_text_button.dart';
 
 class HomeView extends StatelessWidget {
@@ -39,10 +42,39 @@ class HomeView extends StatelessWidget {
               ),
             ],
           ),
-        Container(
-          height: 100.h,
-          color: Colors.red,
-        )
+          AnimationLimiter(
+            child: GridView.count(
+              shrinkWrap: true,
+              childAspectRatio: 153.w / 221.h,
+              physics: const NeverScrollableScrollPhysics(),
+              padding: const EdgeInsets.all(8.0),
+              crossAxisCount: 2,
+              crossAxisSpacing: AppSpacing.tenHorizontal,
+              mainAxisSpacing: AppSpacing.twentyVertical,
+              children: List.generate(
+                dummyProductList.length,
+                (index) {
+                  return AnimationConfiguration.staggeredGrid(
+                    columnCount: 2,
+                    position: index,
+                    duration: const Duration(milliseconds: 375),
+                    child: FadeInAnimation(
+                      duration: const Duration(seconds: 1),
+                      child: FadeInAnimation(
+                        child: ProductCard(
+                          onTap: () {
+                            debugPrint('Hell');
+                            Get.to<Widget>(() => const ProductDetailView());
+                          },
+                          product: dummyProductList[index],
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
         ],
       ),
     );

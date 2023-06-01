@@ -6,9 +6,11 @@ import 'package:ngamar/app/data/constants/constants.dart';
 class SearchField extends StatelessWidget {
   final TextEditingController controller;
   final VoidCallback filterCallback;
+  final bool isEnabled;
   const SearchField({
     required this.controller,
     required this.filterCallback,
+    this.isEnabled = true,
     super.key,
   });
 
@@ -17,6 +19,7 @@ class SearchField extends StatelessWidget {
     return TextField(
       controller: controller,
       textAlignVertical: TextAlignVertical.bottom,
+      enabled: isEnabled,
       decoration: InputDecoration(
         hintText: 'Search...',
         border: InputBorder.none,
@@ -43,11 +46,25 @@ class SearchField extends StatelessWidget {
           ],
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(AppSpacing.radiusThirty),
+          borderSide: const BorderSide(
+            color: AppColors.kLine,
+          ),
+          borderRadius: BorderRadius.circular(
+            AppSpacing.radiusThirty,
+          ),
+        ),
+        disabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: AppColors.kLine,
+          ),
+          borderRadius: BorderRadius.circular(
+            AppSpacing.radiusThirty,
+          ),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide.none,
+          borderSide: const BorderSide(
+            color: AppColors.kLine,
+          ),
           borderRadius: BorderRadius.circular(AppSpacing.radiusThirty),
         ),
       ),

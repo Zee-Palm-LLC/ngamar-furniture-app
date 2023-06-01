@@ -7,7 +7,10 @@ class AppAssets {
   static String kProfilePic = 'assets/images/profilePic.png';
   static String kBannerSofa = 'assets/images/banner-sofa.png';
   static String kBannerMask = 'assets/images/banner-mask.png';
-  
+  static String kDummyProduct1 = 'assets/images/dummy-product.png';
+  static String kDummyProduct2 = 'assets/images/dummy-product(2).png';
+  static String kDummyProduct3 = 'assets/images/dummy-product(3).png';
+  static String kDummyProduct4 = 'assets/images/dummy-product(4).png';
 
   // Icons.
   static String kShower = 'assets/icons/shower.svg';
@@ -28,6 +31,6 @@ class AppAssets {
   static String kScan = 'assets/icons/Scan.svg';
   static String kBag = 'assets/icons/Bag.svg';
   static String kNotification = 'assets/icons/Notification.svg';
-  
-  
+  static String kStar = 'assets/icons/star.svg';
+  static String kEmptyBox = 'assets/icons/empty-box.svg';
 }

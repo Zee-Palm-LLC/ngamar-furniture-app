@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ngamar/app/data/constants/constants.dart';
+import 'package:ngamar/app/modules/explore/explore_view.dart';
 import 'package:ngamar/app/modules/home/home_view.dart';
 import 'package:ngamar/app/modules/landingPage/components/centered_icon.dart';
 
@@ -16,7 +16,7 @@ class _LandingPageState extends State<LandingPage> {
   int _currentIndex = 0;
   List<Widget> pages = [
     const HomeView(),
-    Container(),
+    const ExploreView(),
     Container(),
     Container(),
     Container(),

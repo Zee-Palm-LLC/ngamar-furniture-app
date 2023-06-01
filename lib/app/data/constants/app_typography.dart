@@ -43,6 +43,10 @@ class AppTypography {
       GoogleFonts.plusJakartaSans(fontSize: 16.sp, fontWeight: FontWeight.w600);
   static TextStyle kSemiBold14 =
       GoogleFonts.plusJakartaSans(fontSize: 14.sp, fontWeight: FontWeight.w600);
+  static TextStyle kSemiBold12 =
+      GoogleFonts.plusJakartaSans(fontSize: 12.sp, fontWeight: FontWeight.w600);
+  static TextStyle kSemiBold10 =
+      GoogleFonts.plusJakartaSans(fontSize: 10.sp, fontWeight: FontWeight.w600);
 
   // Bold.
 

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:ngamar/app/data/constants/constants.dart';
 import 'package:ngamar/app/models/user_model.dart';
+import 'package:ngamar/app/modules/cart/cart_view.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   final UserModel user;
@@ -40,7 +42,9 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         CustomIcons(
-          onTap: () {},
+          onTap: () {
+            Get.to<Widget>(() => const CartView());
+          },
           icon: AppAssets.kBag,
         ),
         SizedBox(width: 10.0.w),
