@@ -37,9 +37,9 @@ class _QuantityCardState extends State<QuantityCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(2.h),
+      padding: EdgeInsets.all(3.h),
       decoration: BoxDecoration(
-        color: AppColors.kGreenLight,
+        color: Color(0xFFF3F3F3),
         borderRadius: BorderRadius.circular(20.r),
       ),
       child: Row(
@@ -49,7 +49,7 @@ class _QuantityCardState extends State<QuantityCard> {
             onTap: decrement,
             child: Container(
               padding: EdgeInsets.all(2.0..h),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: AppColors.kWhite,
                 shape: BoxShape.circle,
               ),

@@ -4,6 +4,7 @@ import 'package:ngamar/app/data/constants/constants.dart';
 import 'package:ngamar/app/modules/explore/explore_view.dart';
 import 'package:ngamar/app/modules/home/home_view.dart';
 import 'package:ngamar/app/modules/landingPage/components/centered_icon.dart';
+import 'package:ngamar/app/modules/profile/profile_view.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
@@ -19,7 +20,7 @@ class _LandingPageState extends State<LandingPage> {
     const ExploreView(),
     Container(),
     Container(),
-    Container(),
+    const ProfileView(),
   ];
   @override
   Widget build(BuildContext context) {

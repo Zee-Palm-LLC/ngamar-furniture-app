@@ -8,6 +8,7 @@ class AppColors {
   static const Color kSuccess = Color(0xFF7AC678);
   static const Color kError = Color(0xFFF41F52);
   static const Color kWarning = Color(0xFFFFCD1A);
+  static const Color kBlue = Color(0xFF4040AD);
   // Additional Colors.
   static const Color kWhite = Color(0xFFFEFEFE);
   static const Color kGreenLight = Color(0xFFF8FCF8);

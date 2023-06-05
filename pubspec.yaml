@@ -20,6 +20,8 @@ dependencies:
   flutter_otp_text_field: ^1.1.1
   flutter_staggered_animations: ^1.1.1
   like_button: ^2.0.5
+  simple_animations: ^5.0.1
+  another_stepper: ^1.2.2
 
 dev_dependencies: 
   flutter_lints: ^2.0.0

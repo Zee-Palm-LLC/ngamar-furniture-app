@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:ngamar/app/data/constants/constants.dart';
 import 'package:ngamar/app/models/user_model.dart';
-import 'package:ngamar/app/modules/cart/cart_view.dart';
+import 'package:ngamar/app/modules/checkout/cart_view.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   final UserModel user;

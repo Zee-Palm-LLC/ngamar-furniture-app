@@ -5,11 +5,13 @@ class UserModel {
   String name;
   String email;
   String profilePic;
+  String location;
   UserModel({
     required this.id,
     required this.name,
     required this.email,
     required this.profilePic,
+    required this.location
   });
 }
 
@@ -18,4 +20,5 @@ UserModel dummyUser = UserModel(
   name: 'Jhone Arent',
   email: '',
   profilePic: AppAssets.kProfilePic,
+  location: 'Brooklyn',
 );

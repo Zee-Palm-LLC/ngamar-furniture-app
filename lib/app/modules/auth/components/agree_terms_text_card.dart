@@ -1,7 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:ngamar/app/data/constants/constants.dart';
+import 'package:ngamar/app/modules/profile/legal_policy_view.dart';
 
 class AgreeTermsTextCard extends StatelessWidget {
   const AgreeTermsTextCard({super.key});
@@ -9,7 +11,7 @@ class AgreeTermsTextCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.symmetric(horizontal: 40.w),
+      padding: EdgeInsets.symmetric(horizontal: 40.w),
       child: RichText(
         text: TextSpan(
           text: 'By signing up you agree to our ',
@@ -17,8 +19,12 @@ class AgreeTermsTextCard extends StatelessWidget {
           children: [
             TextSpan(
               text: 'Terms',
-              recognizer: TapGestureRecognizer()..onTap = () {},
-              style: AppTypography.kMedium14.copyWith(color: AppColors.kGrey100),
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  Get.to<Widget>(() => const LegalPolicyView());
+                },
+              style:
+                  AppTypography.kMedium14.copyWith(color: AppColors.kGrey100),
             ),
             TextSpan(
               text: ' and ',
@@ -27,8 +33,12 @@ class AgreeTermsTextCard extends StatelessWidget {
             ),
             TextSpan(
               text: 'Conditions of Use',
-              recognizer: TapGestureRecognizer()..onTap = () {},
-              style: AppTypography.kMedium14.copyWith(color: AppColors.kGrey100,fontSize: 14),
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  Get.to<Widget>(() => const LegalPolicyView());
+                },
+              style: AppTypography.kMedium14
+                  .copyWith(color: AppColors.kGrey100, fontSize: 14),
             ),
           ],
         ),

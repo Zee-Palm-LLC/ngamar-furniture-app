@@ -48,3 +48,25 @@ List<Color> availableColor = [
   AppColors.kGrey60,
   AppColors.kPrimary,
 ];
+
+List<String> suggestedLanguages = [
+  'English (UK)',
+  'English',
+  'Bahasa Indonesia',
+];
+
+List<String> otherLanguages = [
+  'Spanish',
+  'French',
+  'German',
+  'Chinese',
+  'Japanese',
+  'Arabic',
+  'Russian',
+  'Portuguese',
+  'Italian',
+  'Korean',
+];
+
+String dummyTextDescription =
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget ornare quam vel facilisis feugiat amet sagittis arcu, tortor. Sapien, consequat ultrices morbi orci semper sit nulla. Leo auctor ut etiam est, amet aliquet ut vivamus. Odio vulputate est id tincidunt fames.';

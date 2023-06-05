@@ -11,6 +11,8 @@ class AppAssets {
   static String kDummyProduct2 = 'assets/images/dummy-product(2).png';
   static String kDummyProduct3 = 'assets/images/dummy-product(3).png';
   static String kDummyProduct4 = 'assets/images/dummy-product(4).png';
+  static String kMap = 'assets/images/map.png';
+  static String kFullMap = 'assets/images/full-map.png';
 
   // Icons.
   static String kShower = 'assets/icons/shower.svg';
@@ -33,4 +35,23 @@ class AppAssets {
   static String kNotification = 'assets/icons/Notification.svg';
   static String kStar = 'assets/icons/star.svg';
   static String kEmptyBox = 'assets/icons/empty-box.svg';
+  static String kEdit = 'assets/icons/edit.svg';
+  static String kWallet = 'assets/icons/Wallet.svg';
+  static String kSecurity = 'assets/icons/Shield-Done.svg';
+  static String kInfo = 'assets/icons/info.svg';
+  static String kWorld = 'assets/icons/world.svg';
+  static String kHelp = 'assets/icons/help.svg';
+  static String kVisaDebit = 'assets/icons/VisaDebit.svg';
+  static String kMasterCard = 'assets/icons/mastercard_logo.svg';
+  static String kDiscountShape = 'assets/icons/discount-shape.svg';
+  static String kMapPin = 'assets/icons/map-pin.svg';
+  static String kEditIcon = 'assets/icons/edit-icon.svg';
+  static String kPaypal = 'assets/icons/paypal.svg';
+  static String kMasterCardIcon = 'assets/icons/master-card.svg';
+  static String kPaymentSuccess = 'assets/icons/payment-success.svg';
+  static String kFileText = 'assets/icons/file-text.svg';
+  static String kBoxTick = 'assets/icons/box-tick.svg';
+  static String kBox = 'assets/icons/box.svg';
+  static String kTruckDelivery = 'assets/icons/truck-delivery.svg';
+  static String kPhone = 'assets/icons/phone.svg';
 }
