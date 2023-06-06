@@ -1,3 +1,4 @@
+import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -37,18 +38,17 @@ class _ProductDetailViewState extends State<ProductDetailView> {
         ],
       ),
       body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 24.w),
+        padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 20.h),
         physics: const BouncingScrollPhysics(),
         children: [
-          SizedBox(height: AppSpacing.twentyVertical),
-          Container(
-            height: 350.h,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(AppAssets.kDummyProduct1),
-                fit: BoxFit.cover,
+          Stack(
+            alignment: Alignment.bottomCenter,
+            children: [
+              Image.asset(AppAssets.kStage),
+              Image.asset(
+                AppAssets.kSofaDetail,
               ),
-            ),
+            ],
           ),
           SizedBox(height: AppSpacing.thirtyVertical),
           Row(
@@ -123,42 +123,43 @@ class _ProductDetailViewState extends State<ProductDetailView> {
             style: AppTypography.kSemiBold18,
           ),
           SizedBox(height: AppSpacing.tenVertical),
-          Text(
+          ExpandableText(
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a Read More",
+            expandText: 'Read More',
+            collapseText: 'Read Less',
+            maxLines: 3,
+            linkColor: AppColors.kPrimary,
             style: AppTypography.kMedium14.copyWith(
               color: AppColors.kGrey80,
             ),
           ),
-        ],
-      ),
-      bottomSheet: Container(
-        color: AppColors.kWhite,
-        padding: EdgeInsets.all(20.h),
-        child: Row(
-          children: [
-            Expanded(
-              child: RichText(
-                text: TextSpan(
-                  text: r'$',
-                  style:
-                      AppTypography.kBold32.copyWith(color: AppColors.kPrimary),
-                  children: [
-                    TextSpan(
-                      text: '35.25',
-                      style: AppTypography.kBold32,
-                    ),
-                  ],
+          SizedBox(height: AppSpacing.twentyVertical),
+          Row(
+            children: [
+              Expanded(
+                child: RichText(
+                  text: TextSpan(
+                    text: r'$',
+                    style: AppTypography.kBold32
+                        .copyWith(color: AppColors.kPrimary),
+                    children: [
+                      TextSpan(
+                        text: '35.25',
+                        style: AppTypography.kBold32,
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            Expanded(
-              child: PrimaryButton(
-                onTap: () {},
-                text: 'Add To Cart',
+              Expanded(
+                child: PrimaryButton(
+                  onTap: () {},
+                  text: 'Add To Cart',
+                ),
               ),
-            ),
-          ],
-        ),
+            ],
+          ),
+        ],
       ),
     );
   }

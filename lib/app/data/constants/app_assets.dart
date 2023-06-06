@@ -13,6 +13,8 @@ class AppAssets {
   static String kDummyProduct4 = 'assets/images/dummy-product(4).png';
   static String kMap = 'assets/images/map.png';
   static String kFullMap = 'assets/images/full-map.png';
+  static String kStage = 'assets/images/stage.png';
+  static String kSofaDetail = 'assets/images/sofa-detail.png';
 
   // Icons.
   static String kShower = 'assets/icons/shower.svg';
