@@ -4,15 +4,20 @@ import 'package:like_button/like_button.dart';
 import 'package:ngamar/app/data/constants/constants.dart';
 import 'package:ngamar/app/models/product_model.dart';
 
-class ProductCard extends StatelessWidget {
+class ProductCard extends StatefulWidget {
   final ProductModel product;
   final VoidCallback onTap;
   const ProductCard({required this.product, required this.onTap, super.key});
 
   @override
+  State<ProductCard> createState() => _ProductCardState();
+}
+
+class _ProductCardState extends State<ProductCard> {
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: widget.onTap,
       child: Column(
         children: [
           Container(
@@ -23,7 +28,7 @@ class ProductCard extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.r),
               image: DecorationImage(
-                image: AssetImage(product.image),
+                image: AssetImage(widget.product.image),
                 fit: BoxFit.cover,
               ),
             ),
@@ -42,7 +47,7 @@ class ProductCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20.r),
                     ),
                     child: Text(
-                      product.offPercentage,
+                      widget.product.offPercentage,
                       style: AppTypography.kSemiBold10,
                     ),
                   ),
@@ -75,7 +80,7 @@ class ProductCard extends StatelessWidget {
           ),
           const Spacer(),
           Text(
-            product.name,
+            widget.product.name,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: AppTypography.kSemiBold12,
@@ -83,11 +88,11 @@ class ProductCard extends StatelessWidget {
           SizedBox(height: AppSpacing.fiveVertical),
           RichText(
             text: TextSpan(
-              text: '\$${product.oldPrice.toInt()}  ',
+              text: '\$${widget.product.oldPrice.toInt()}  ',
               style: AppTypography.kLight10.copyWith(color: AppColors.kGrey60),
               children: [
                 TextSpan(
-                  text: '\$${product.currentPrice.toInt()}',
+                  text: '\$${widget.product.currentPrice.toInt()}',
                   style: AppTypography.kSemiBold14
                       .copyWith(color: AppColors.kGrey100),
                 ),

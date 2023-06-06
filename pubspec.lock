@@ -9,6 +9,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "60.0.0"
+  ai_barcode_scanner:
+    dependency: "direct main"
+    description:
+      name: ai_barcode_scanner
+      sha256: d6218413bfbe4d5bc6bf3da91afde6d2ebeac2d9fe8273a006d609cc4b48893e
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.6"
   analyzer:
     dependency: transitive
     description:
@@ -243,6 +251,11 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_web_plugins:
+    dependency: transitive
+    description: flutter
+    source: sdk
+    version: "0.0.0"
   get:
     dependency: "direct main"
     description:
@@ -355,6 +368,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.0"
+  mobile_scanner:
+    dependency: transitive
+    description:
+      name: mobile_scanner
+      sha256: da55204e5439bc8dc058df56231a7a1d513c6ec9cbad84492f56d493382d296f
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.2.0"
   package_config:
     dependency: transitive
     description:

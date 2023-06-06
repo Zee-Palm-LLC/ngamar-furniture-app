@@ -22,6 +22,7 @@ dependencies:
   like_button: ^2.0.5
   simple_animations: ^5.0.1
   another_stepper: ^1.2.2
+  ai_barcode_scanner: ^0.0.6
 
 dev_dependencies: 
   flutter_lints: ^2.0.0
