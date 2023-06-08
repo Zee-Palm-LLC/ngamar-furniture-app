@@ -66,19 +66,19 @@ class MyPurchaseDetail extends StatelessWidget {
             SizedBox(height: AppSpacing.twentyVertical),
             const CustomPaymentDetails(
               heading: 'Subtotal',
-              amount: '24.00',
+              amount: 24.00,
             ),
             SizedBox(height: AppSpacing.tenVertical),
             const CustomPaymentDetails(
               heading: 'Shipping',
-              amount: 'FREE',
+              amount: 0.00,
             ),
             SizedBox(height: AppSpacing.tenVertical),
             const DottedDivider(),
             SizedBox(height: AppSpacing.tenVertical),
             const CustomPaymentDetails(
               heading: 'Total Amount',
-              amount: '24.00',
+              amount: 24.00,
             ),
             const Spacer(),
             Row(

@@ -40,9 +40,12 @@ class ProfileView extends StatelessWidget {
             ),
           ),
           SizedBox(height: AppSpacing.thirtyVertical),
-          Text(
-            'Settings',
-            style: AppTypography.kSemiBold14.copyWith(color: AppColors.kGrey60),
+          FadeAnimation(
+            delay: 1,
+            child: Text(
+              'Settings',
+              style: AppTypography.kSemiBold14.copyWith(color: AppColors.kGrey60),
+            ),
           ),
           SizedBox(height: AppSpacing.tenVertical),
           FadeAnimation(

@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
 import 'package:ngamar/app/data/constants/constants.dart';
-import 'package:ngamar/app/data/helpers/data.dart';
+import 'package:ngamar/app/data/helpers/app_extensions.dart';
+import 'package:ngamar/app/data/helpers/product_category.dart';
 import 'package:ngamar/app/models/product_model.dart';
 import 'package:ngamar/app/modules/explore/components/product_type_card.dart';
 import 'package:ngamar/app/modules/home/components/product_card.dart';
@@ -11,7 +12,7 @@ import 'package:ngamar/app/modules/search/search_view.dart';
 import 'package:ngamar/app/modules/widgets/textfields/search_field.dart';
 
 class ExploreView extends StatefulWidget {
-  const ExploreView({super.key});
+  const ExploreView({Key? key}) : super(key: key);
 
   @override
   State<ExploreView> createState() => _ExploreViewState();
@@ -20,8 +21,22 @@ class ExploreView extends StatefulWidget {
 class _ExploreViewState extends State<ExploreView> {
   final TextEditingController _searchController = TextEditingController();
   int _selectedType = 0;
+  ProductCategory _productCategory = ProductCategory.all;
+
+  List<ProductModel> getFilteredProducts() {
+    if (_productCategory == ProductCategory.all) {
+      return dummyProductList;
+    } else {
+      return dummyProductList
+          .where((product) => product.category == _productCategory)
+          .toList();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final filteredProducts = getFilteredProducts();
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -38,8 +53,8 @@ class _ExploreViewState extends State<ExploreView> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 24.w),
             child: GestureDetector(
-              onTap: (){
-                Get.to<Widget>(()=>const SearchView());
+              onTap: () {
+                Get.to<Widget>(() => const SearchView());
               },
               child: SearchField(
                 controller: _searchController,
@@ -52,7 +67,7 @@ class _ExploreViewState extends State<ExploreView> {
           SizedBox(
             height: 36.h,
             child: ListView.separated(
-              itemCount: furnitureTypes.length,
+              itemCount: ProductCategory.values.length,
               scrollDirection: Axis.horizontal,
               padding: EdgeInsets.only(left: 24.0.w),
               physics: const BouncingScrollPhysics(),
@@ -60,12 +75,17 @@ class _ExploreViewState extends State<ExploreView> {
                 width: 8.w,
               ),
               itemBuilder: (context, index) {
+                final category = ProductCategory.values[index];
+                final formattedCategory = AppExtensions.capitalize(
+                  category.toString().split('.').last,
+                );
                 return ProductTypeCard(
-                  type: furnitureTypes[index],
+                  type: formattedCategory,
                   isSelected: _selectedType == index,
                   onTap: () {
                     setState(() {
                       _selectedType = index;
+                      _productCategory = ProductCategory.values[index];
                     });
                   },
                 );
@@ -93,7 +113,7 @@ class _ExploreViewState extends State<ExploreView> {
                 crossAxisSpacing: AppSpacing.tenHorizontal,
                 mainAxisSpacing: AppSpacing.twentyVertical,
                 children: List.generate(
-                  dummyProductList.length,
+                  filteredProducts.length,
                   (index) {
                     return AnimationConfiguration.staggeredGrid(
                       columnCount: 2,
@@ -103,8 +123,7 @@ class _ExploreViewState extends State<ExploreView> {
                         duration: const Duration(seconds: 1),
                         child: FadeInAnimation(
                           child: ProductCard(
-                            onTap: () {},
-                            product: dummyProductList[index],
+                            product: filteredProducts[index],
                           ),
                         ),
                       ),

@@ -16,7 +16,7 @@ class QuantityCard extends StatefulWidget {
 }
 
 class _QuantityCardState extends State<QuantityCard> {
-  int quantity = 2;
+  int quantity = 1;
 
   void increment() {
     setState(() {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ngamar/app/data/constants/constants.dart';
+import 'package:ngamar/app/models/product_model.dart';
 
 List<String> furnitureList = [
   'Dining Table',
@@ -15,13 +16,7 @@ List<String> furnitureList = [
   'Side Table',
 ];
 
-List<String> furnitureTypes = [
-  'All',
-  'Sofa',
-  'Chair',
-  'Table',
-  'Lamp',
-];
+
 
 List<String> lastSearch = [
   'Gain Sofa',
@@ -69,4 +64,7 @@ List<String> otherLanguages = [
 ];
 
 String dummyTextDescription =
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget ornare quam vel facilisis feugiat amet sagittis arcu, tortor. Sapien, consequat ultrices morbi orci semper sit nulla. Leo auctor ut etiam est, amet aliquet ut vivamus. Odio vulputate est id tincidunt fames.';
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget ornare quam vel facilisis feugiat amet sagittis arcu, tortor. Sapien, consequat ultrices morbi orci semper sit nulla. Leo auctor ut etiam est, amet aliquet ut vivamus. Odio vulputate est id tincidunt fames.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget ornare quam vel facilisis feugiat amet sagittis arcu, tortor. Sapien, consequat ultrices morbi orci semper sit nulla. Leo auctor ut etiam est, amet aliquet ut vivamus. Odio vulputate est id tincidunt fames.';
+
+
+List<ProductModel> favorite = [];

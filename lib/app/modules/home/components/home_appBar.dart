@@ -43,7 +43,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         CustomIcons(
           onTap: () {
-            Get.to<Widget>(() => const CartView());
+            Get.to<Widget>(CartView.new);
           },
           icon: AppAssets.kBag,
         ),

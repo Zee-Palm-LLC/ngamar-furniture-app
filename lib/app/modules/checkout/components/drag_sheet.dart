@@ -9,9 +9,9 @@ import 'package:ngamar/app/modules/search/components/filter_sheet.dart';
 import 'package:ngamar/app/modules/widgets/buttons/primary_button.dart';
 
 class DragSheet extends StatelessWidget {
-  final String subtotal;
-  final String shipping;
-  final String totalAmount;
+  final double subtotal;
+  final double shipping;
+  final double totalAmount;
   const DragSheet({
     required this.shipping,
     required this.subtotal,
@@ -106,7 +106,7 @@ class DragSheet extends StatelessWidget {
 
 class CustomPaymentDetails extends StatelessWidget {
   final String heading;
-  final String amount;
+  final double amount;
   const CustomPaymentDetails({
     required this.amount,
     required this.heading,
@@ -130,7 +130,7 @@ class CustomPaymentDetails extends StatelessWidget {
                 .copyWith(color: AppColors.kGrey100, fontSize: 12.sp),
             children: [
               TextSpan(
-                text: amount,
+                text: amount.toString(),
                 style: AppTypography.kSemiBold16,
               ),
             ],

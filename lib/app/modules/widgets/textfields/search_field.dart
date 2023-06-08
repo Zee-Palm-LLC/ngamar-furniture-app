@@ -9,11 +9,13 @@ class SearchField extends StatelessWidget {
   final bool isEnabled;
   final bool isFilterIcon;
   final String? hintText;
+  final void Function(String)? onChanged;
   const SearchField({
     required this.controller,
     required this.filterCallback,
     this.isEnabled = true,
     this.isFilterIcon = true,
+    this.onChanged,
     this.hintText,
     super.key,
   });
@@ -22,6 +24,7 @@ class SearchField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       controller: controller,
+      onChanged: onChanged,
       textAlignVertical: TextAlignVertical.bottom,
       enabled: isEnabled,
       decoration: InputDecoration(

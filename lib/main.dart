@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:ngamar/app/bindings/home_binding.dart';
 import 'package:ngamar/app/data/constants/constants.dart';
 import 'package:ngamar/app/modules/splash/splash_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(defaultOverlay);
+  await SystemChrome.setPreferredOrientations(
+    [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown],
+  );
   runApp(const Main());
 }
 
@@ -21,7 +25,7 @@ class Main extends StatelessWidget {
       builder: (context, child) {
         return GestureDetector(
           behavior: HitTestBehavior.opaque,
-          onTap: (){
+          onTap: () {
             FocusManager.instance.primaryFocus?.unfocus();
           },
           child: GetMaterialApp(
@@ -31,6 +35,7 @@ class Main extends StatelessWidget {
             defaultTransition: Transition.fadeIn,
             theme: AppTheme.lightTheme,
             locale: const Locale('en_US'),
+            initialBinding: HomeBinding(),
             home: const SplashView(),
           ),
         );

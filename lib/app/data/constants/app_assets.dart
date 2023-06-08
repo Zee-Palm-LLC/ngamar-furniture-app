@@ -11,6 +11,13 @@ class AppAssets {
   static String kDummyProduct2 = 'assets/images/dummy-product(2).png';
   static String kDummyProduct3 = 'assets/images/dummy-product(3).png';
   static String kDummyProduct4 = 'assets/images/dummy-product(4).png';
+  static String kDummyProduct5 = 'assets/images/dummy-product(5).jpg';
+  static String kDummyProduct6 = 'assets/images/dummy-product(6).jpg';
+  static String kDummyProduct7 = 'assets/images/dummy-product(7).jpg';
+  static String kDummyProduct8 = 'assets/images/dummy-product(8).jpg';
+  static String kDummyProduct9 = 'assets/images/dummy-product(9).jpg';
+  static String kDummyProduct10 = 'assets/images/dummy-product(10).jpg';
+  static String kDummyProduct11 = 'assets/images/dummy-product(11).jpg';
   static String kMap = 'assets/images/map.png';
   static String kFullMap = 'assets/images/full-map.png';
   static String kStage = 'assets/images/stage.png';

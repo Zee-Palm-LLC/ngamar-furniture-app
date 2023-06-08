@@ -9,8 +9,9 @@ class NoItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Spacer(),
+        
         Container(
           alignment: Alignment.center,
           padding: EdgeInsets.all(15.h),
@@ -32,7 +33,6 @@ class NoItemCard extends StatelessWidget {
             style: AppTypography.kMedium14.copyWith(color: AppColors.kGrey60),
           ),
         ),
-        const Spacer(),
       ],
     );
   }

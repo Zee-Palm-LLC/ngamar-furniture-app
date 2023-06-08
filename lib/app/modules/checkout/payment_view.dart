@@ -81,7 +81,7 @@ class PaymentView extends StatelessWidget {
             SizedBox(height: AppSpacing.fifteenVertical),
             const CustomPaymentDetails(
               heading: 'Total Amount',
-              amount: '97.00',
+              amount: 97.00,
             ),
             SizedBox(height: AppSpacing.fifteenVertical),
             PrimaryButton(

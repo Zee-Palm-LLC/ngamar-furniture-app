@@ -3,11 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:ngamar/app/controllers/favorite_controller.dart';
 import 'package:ngamar/app/data/constants/constants.dart';
-import 'package:ngamar/app/models/product_model.dart';
 import 'package:ngamar/app/modules/checkout/cart_view.dart';
+import 'package:ngamar/app/modules/checkout/components/no_item_card.dart';
 import 'package:ngamar/app/modules/home/components/product_card.dart';
-import 'package:ngamar/app/modules/home/product_detail_view.dart';
 import 'package:ngamar/app/modules/widgets/textfields/search_field.dart';
 
 class FavoriteView extends StatefulWidget {
@@ -19,8 +19,10 @@ class FavoriteView extends StatefulWidget {
 
 class _FavoriteViewState extends State<FavoriteView> {
   final TextEditingController _searchController = TextEditingController();
+  FavoriteController fc = Get.find<FavoriteController>();
   @override
   Widget build(BuildContext context) {
+    debugPrint(fc.favorite!.length.toString());
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -31,7 +33,7 @@ class _FavoriteViewState extends State<FavoriteView> {
         actions: [
           IconButton(
             onPressed: () {
-              Get.to<Widget>(() => const CartView());
+              Get.to<Widget>(CartView.new);
             },
             icon: SvgPicture.asset(AppAssets.kBag),
           ),
@@ -47,38 +49,37 @@ class _FavoriteViewState extends State<FavoriteView> {
             filterCallback: () {},
           ),
           SizedBox(height: AppSpacing.thirtyVertical),
-          AnimationLimiter(
-            child: GridView.count(
-              shrinkWrap: true,
-              childAspectRatio: 153.w / 221.h,
-              physics: const NeverScrollableScrollPhysics(),
-              padding: const EdgeInsets.all(8.0),
-              crossAxisCount: 2,
-              crossAxisSpacing: AppSpacing.tenHorizontal,
-              mainAxisSpacing: AppSpacing.twentyVertical,
-              children: List.generate(
-                dummyProductList.length,
-                (index) {
-                  return AnimationConfiguration.staggeredGrid(
-                    columnCount: 2,
-                    position: index,
-                    duration: const Duration(milliseconds: 375),
-                    child: FadeInAnimation(
-                      duration: const Duration(seconds: 1),
-                      child: FadeInAnimation(
-                        child: ProductCard(
-                          onTap: () {
-                            Get.to<Widget>(() => const ProductDetailView());
-                          },
-                          product: dummyProductList[index],
-                        ),
-                      ),
+          Obx(() => fc.favorite != null && fc.favorite!.isNotEmpty
+              ? AnimationLimiter(
+                  child: GridView.count(
+                    shrinkWrap: true,
+                    childAspectRatio: 153.w / 221.h,
+                    physics: const NeverScrollableScrollPhysics(),
+                    padding: const EdgeInsets.all(8.0),
+                    crossAxisCount: 2,
+                    crossAxisSpacing: AppSpacing.tenHorizontal,
+                    mainAxisSpacing: AppSpacing.twentyVertical,
+                    children: List.generate(
+                      fc.favorite!.length,
+                      (index) {
+                        return AnimationConfiguration.staggeredGrid(
+                          columnCount: 2,
+                          position: index,
+                          duration: const Duration(milliseconds: 375),
+                          child: FadeInAnimation(
+                            duration: const Duration(seconds: 1),
+                            child: FadeInAnimation(
+                              child: ProductCard(
+                                product: fc.favorite![index],
+                              ),
+                            ),
+                          ),
+                        );
+                      },
                     ),
-                  );
-                },
-              ),
-            ),
-          ),
+                  ),
+                )
+              : const NoItemCard()),
         ],
       ),
     );

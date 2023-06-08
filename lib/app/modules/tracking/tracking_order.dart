@@ -1,11 +1,9 @@
-import 'package:another_stepper/another_stepper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:ngamar/app/data/constants/constants.dart';
 import 'package:ngamar/app/modules/tracking/components/custom_stepper.dart';
-import 'package:ngamar/app/modules/tracking/components/custom_tracking_stepper_card.dart';
 import 'package:ngamar/app/modules/tracking/tracking_detail.dart';
 import 'package:ngamar/app/modules/widgets/buttons/custom_outlined_button.dart';
 

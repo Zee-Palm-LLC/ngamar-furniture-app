@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:ngamar/app/data/constants/constants.dart';
 import 'package:ngamar/app/data/helpers/data.dart';
+import 'package:ngamar/app/data/helpers/product_category.dart';
 import 'package:ngamar/app/modules/explore/components/product_type_card.dart';
 import 'package:ngamar/app/modules/search/components/star_rating_card.dart';
 import 'package:ngamar/app/modules/widgets/buttons/custom_text_button.dart';
 import 'package:ngamar/app/modules/widgets/buttons/primary_button.dart';
 
 class FilterSheet extends StatefulWidget {
-  const FilterSheet({super.key});
+  final void Function(ProductCategory category, double price, int starRating)
+      onApplyFilters;
+  const FilterSheet({required this.onApplyFilters, super.key});
 
   @override
   State<FilterSheet> createState() => _FilterSheetState();
@@ -17,7 +21,12 @@ class FilterSheet extends StatefulWidget {
 class _FilterSheetState extends State<FilterSheet> {
   int selectedType = 0;
   int selectedStarRating = 0;
-  double currentFilerPrice = 60.0;
+  double currentFilerPrice = 1260.0;
+  String formatProductCategory(ProductCategory category) {
+    final categoryString = category.toString().split('.').last;
+    return categoryString.replaceAll('_', ' ').capitalizeFirst.toString();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,7 +50,9 @@ class _FilterSheetState extends State<FilterSheet> {
           Row(
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.back<void>();
+                },
                 icon: const Icon(Icons.close),
               ),
               Text(
@@ -66,7 +77,7 @@ class _FilterSheetState extends State<FilterSheet> {
             spacing: 10.0.w,
             runSpacing: 10.0.h,
             children: List.generate(
-              categories.length,
+              ProductCategory.values.length,
               (index) => ProductTypeCard(
                 onTap: () {
                   setState(() {
@@ -74,7 +85,7 @@ class _FilterSheetState extends State<FilterSheet> {
                   });
                 },
                 isSelected: selectedType == index,
-                type: categories[index],
+                type: formatProductCategory(ProductCategory.values[index]),
               ),
             ),
           ),
@@ -92,7 +103,9 @@ class _FilterSheetState extends State<FilterSheet> {
             ),
             child: Slider(
               value: currentFilerPrice,
-              max: 100,
+              min: 260,
+              max: 12000,
+              label: currentFilerPrice.toInt().toString(),
               thumbColor: AppColors.kWhite,
               onChanged: (value) {
                 setState(() {
@@ -140,7 +153,17 @@ class _FilterSheetState extends State<FilterSheet> {
           ),
           const Spacer(),
           PrimaryButton(
-            onTap: () {},
+            onTap: () {
+              final selectedCategory = ProductCategory.values[selectedType];
+              final selectedPrice = currentFilerPrice;
+              final selectedRating = starRating[selectedStarRating];
+              widget.onApplyFilters(
+                selectedCategory,
+                selectedPrice,
+                selectedRating,
+              );
+              Get.back<void>();
+            },
             text: 'Apply Filters',
           ),
         ],
