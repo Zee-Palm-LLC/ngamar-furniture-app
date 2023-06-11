@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:ngamar/app/data/constants/constants.dart';
 import 'package:ngamar/app/models/user_model.dart';
 import 'package:ngamar/app/modules/checkout/cart_view.dart';
+import 'package:ngamar/app/modules/notification/notification_view.dart';
+import 'package:ngamar/app/modules/profile/edit_profile.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   final UserModel user;
@@ -17,13 +19,18 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       leadingWidth: 60.w,
-      leading: Padding(
-        padding: EdgeInsets.only(
-          left: 10.w,
-          top: 5.h,
-        ),
-        child: CircleAvatar(
-          backgroundImage: AssetImage(user.profilePic),
+      leading: GestureDetector(
+        onTap: (){
+          Get.to<Widget>(()=>const EditProfile());
+        },
+        child: Padding(
+          padding: EdgeInsets.only(
+            left: 10.w,
+            top: 5.h,
+          ),
+          child: CircleAvatar(
+            backgroundImage: AssetImage(user.profilePic),
+          ),
         ),
       ),
       title: Column(
@@ -49,7 +56,9 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         SizedBox(width: 10.0.w),
         CustomIcons(
-          onTap: () {},
+          onTap: () {
+            Get.to<Widget>(()=>const NotificationView());
+          },
           icon: AppAssets.kNotification,
         ),
         SizedBox(width: 20.0.w),

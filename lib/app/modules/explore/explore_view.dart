@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:ngamar/app/data/constants/constants.dart';
 import 'package:ngamar/app/data/helpers/app_extensions.dart';
 import 'package:ngamar/app/data/helpers/product_category.dart';
 import 'package:ngamar/app/models/product_model.dart';
+import 'package:ngamar/app/modules/checkout/cart_view.dart';
 import 'package:ngamar/app/modules/explore/components/product_type_card.dart';
 import 'package:ngamar/app/modules/home/components/product_card.dart';
 import 'package:ngamar/app/modules/search/search_view.dart';
@@ -45,6 +47,19 @@ class _ExploreViewState extends State<ExploreView> {
           'Discover',
           style: AppTypography.kSemiBold18.copyWith(color: AppColors.kGrey100),
         ),
+          actions: [
+          IconButton(
+            onPressed: () {
+                Get.to<Widget>(CartView.new);
+            },
+            icon: SvgPicture.asset(
+              AppAssets.kBag,
+              colorFilter:
+                  const ColorFilter.mode(AppColors.kWhite, BlendMode.srcIn),
+            ),
+          ),
+          SizedBox(width: AppSpacing.tenHorizontal),
+        ],
       ),
       body: ListView(
         physics: const BouncingScrollPhysics(),

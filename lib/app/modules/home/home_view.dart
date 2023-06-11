@@ -5,7 +5,7 @@ import 'package:ngamar/app/data/constants/constants.dart';
 import 'package:ngamar/app/models/product_model.dart';
 import 'package:ngamar/app/models/user_model.dart';
 import 'package:ngamar/app/modules/home/components/banner_card.dart';
-import 'package:ngamar/app/modules/home/components/home_appBar.dart';
+import 'package:ngamar/app/modules/home/components/home_appbar.dart';
 import 'package:ngamar/app/modules/home/components/product_card.dart';
 import 'package:ngamar/app/modules/widgets/buttons/custom_text_button.dart';
 

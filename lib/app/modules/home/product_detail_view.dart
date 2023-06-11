@@ -7,6 +7,7 @@ import 'package:ngamar/app/controllers/cart_controller.dart';
 import 'package:ngamar/app/data/constants/constants.dart';
 import 'package:ngamar/app/data/helpers/data.dart';
 import 'package:ngamar/app/models/product_model.dart';
+import 'package:ngamar/app/modules/checkout/cart_view.dart';
 import 'package:ngamar/app/modules/home/components/color_card.dart';
 import 'package:ngamar/app/modules/home/components/quantity_card.dart';
 import 'package:ngamar/app/modules/widgets/buttons/primary_button.dart';
@@ -43,7 +44,9 @@ class _ProductDetailViewState extends State<ProductDetailView> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+                Get.to<Widget>(CartView.new);
+            },
             icon: SvgPicture.asset(
               AppAssets.kBag,
               colorFilter:

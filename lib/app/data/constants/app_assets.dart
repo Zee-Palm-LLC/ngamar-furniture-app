@@ -22,6 +22,9 @@ class AppAssets {
   static String kFullMap = 'assets/images/full-map.png';
   static String kStage = 'assets/images/stage.png';
   static String kSofaDetail = 'assets/images/sofa-detail.png';
+  static String kNotDiscount = 'assets/images/not-discout.png';
+  static String kNotSuccess = 'assets/images/not-success.png';
+  static String kNotReceipt = 'assets/images/not-receipt.png';
 
   // Icons.
   static String kShower = 'assets/icons/shower.svg';

@@ -11,7 +11,6 @@ List<String> furnitureList = [
   'Console Table',
   'Wardrobes',
   'Streamers',
-  'Personal Development',
   'Sofa',
   'Side Table',
 ];
