@@ -28,15 +28,7 @@ class _EditProfileState extends State<EditProfile> {
           'Personal Info',
           style: AppTypography.kSemiBold16.copyWith(color: AppColors.kGrey100),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset(AppAssets.kEdit),
-          ),
-          SizedBox(
-            width: AppSpacing.tenHorizontal,
-          ),
-        ],
+       
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 20.h),

@@ -41,6 +41,7 @@ class _ChooseInterestViewState extends State<ChooseInterestView> {
             SearchField(
               controller: _searchController,
               filterCallback: () {},
+              isFilterIcon: false,
             ),
             SizedBox(height: AppSpacing.twentyVertical),
             Wrap(
